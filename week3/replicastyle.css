@@ -22,8 +22,8 @@ body {
 .header-content {
     display: flex;
     align-items: center;
-    padding: 30px;
     gap: 40px;
+    padding: 20px;
 }
 
 .profile {
