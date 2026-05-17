@@ -36,6 +36,13 @@ body {
     justify-content: center;
 }
 
+.profile-img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 .link {
     font-size: 18px;
 }
