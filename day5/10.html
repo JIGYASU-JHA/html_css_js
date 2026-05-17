@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>10. Quiz: 5 + 5 = ?</h3>
+        <input type="radio" name="q1" value="10"> 10
+        <input type="radio" name="q1" value="15"> 15
+        <button onclick="checkQuiz()">Submit</button>
+        <span id="res"></span>
+    </div>
+
+ <script>
+     function checkQuiz() {
+            const q = document.querySelector('input[name="q1"]:checked');
+            document.getElementById('res').innerText = (q && q.value === "10") ? "Correct" : "Wrong";
+        }
+ </script>
+</body>
+</html>   

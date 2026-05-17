@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>14. Show / Hide</h3>
+        <button onclick="toggleText()">Toggle</button>
+        <p id="res" style="display:none">Surprise text!</p>
+    </div>
+
+ <script>
+    function toggleText() {
+            const x = document.getElementById('res');
+            x.style.display = (x.style.display === 'none') ? 'block' : 'none';
+        }
+ </script>
+</body>
+</html>   

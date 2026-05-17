@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>16. Case Converter</h3>
+        <input type="text" id="text">
+        <button onclick="toCase('upper')">UPPER</button>
+        <button onclick="toCase('lower')">lower</button>
+        <span id="res"></span>
+    </div>
+
+ <script>
+    function toCase(type) {
+            const t = document.getElementById('text').value;
+            document.getElementById('res').innerText = (type === 'upper') ? t.toUpperCase() : t.toLowerCase();
+        }
+ </script>
+</body>
+</html>   

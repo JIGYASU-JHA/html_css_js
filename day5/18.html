@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>18. Count Vowels</h3>
+        <input type="text" id="text">
+        <button onclick="cntVowels()">Count</button>
+        <span id="res"></span>
+    </div>
+
+ <script>
+    function cntVowels() {
+            const m = document.getElementById('text').value.match(/[aeiou]/gi);
+            document.getElementById('res').innerText = m ? m.length : 0;
+        }
+ </script>
+</body>
+</html>   

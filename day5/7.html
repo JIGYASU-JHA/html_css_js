@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>7. Image Preview</h3>
+        <input type="file" onchange="showImage(event)">
+        <br>
+        <img id="res7" style="max-width: 150px; display: none; margin-top: 10px;">
+    </div>
+
+ <script>
+    function showImage(e) {
+            const r = new FileReader();
+            r.onload = () => {
+                const img = document.getElementById('res7');
+                img.src = r.result;
+                img.style.display = 'block';
+            };
+            r.readAsDataURL(e.target.files[0]);
+        }
+ </script>
+</body>
+</html>   

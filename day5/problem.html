@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS problems</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        .problem-box {
+            border-bottom: 1px solid black; 
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        button {
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        input, select {
+            padding: 5px;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript </h1>
+
+    <div class="problem-box">
+        <h3>1. Age Calculator</h3>
+        <input type="date" id="dob">
+        <button onclick="calcAge()">Get Age</button>
+        <span id="res1"></span>
+    </div>
+
+    <div class="problem-box">
+        <h3>2. Add to List</h3>
+        <input type="text" id="listItem">
+        <button onclick="addList()">Add</button>
+        <ol id="res2"></ol>
+    </div>
+
+    <div class="problem-box">
+        <h3>3. Change Font</h3>
+        <select id="fontPick" onchange="changeFont()">
+            <option value="sans-serif">Sans Serif</option>
+            <option value="serif">Serif</option>
+            <option value="monospace">Monospace</option>
+            <option value="cursive">Cursive</option>
+        </select>
+        <p id="res3">This text will change font.</p>
+    </div>
+
+    <div class="problem-box">
+        <h3>4. Factorial</h3>
+        <input type="number" id="factInput">
+        <button onclick="calcFact()">Calculate</button>
+        <span id="res4"></span>
+    </div>
+
+    <div class="problem-box">
+        <h3>5. Highlight Search</h3>
+        <input type="text" id="searchKey" oninput="doHighlight()" placeholder="Type 'hello'...">
+        <p id="searchArea">Hello world, this is a hello test for highlighting.</p>
+    </div>
+
+    <div class="problem-box">
+        <h3>6. Create Table</h3>
+        <input type="number" id="rows" placeholder="Rows" style="width: 50px;">
+        <input type="number" id="cols" placeholder="Cols" style="width: 50px;">
+        <button onclick="makeTable()">Make Table</button>
+        <div id="res6" style="margin-top:10px;"></div>
+    </div>
+
+    <div class="problem-box">
+        <h3>7. Image Preview</h3>
+        <input type="file" onchange="showImage(event)">
+        <br>
+        <img id="res7" style="max-width: 150px; display: none; margin-top: 10px;">
+    </div>
+
+    <div class="problem-box">
+        <h3>8. To-Do List</h3>
+        <input type="text" id="todoIn">
+        <button onclick="addTodo()">Add Task</button>
+        <ul id="res8"></ul>
+    </div>
+
+    <div class="problem-box">
+        <h3>9. Login (admin / 1234)</h3>
+        <input type="text" id="uName" placeholder="User">
+        <input type="password" id="pWord" placeholder="Pass">
+        <button onclick="doLogin()">Login</button>
+        <span id="res9"></span>
+    </div>
+
+    <div class="problem-box">
+        <h3>10. Quiz: 5 + 5 = ?</h3>
+        <input type="radio" name="q1" value="10"> 10
+        <input type="radio" name="q1" value="15"> 15
+        <button onclick="checkQuiz()">Submit</button>
+        <span id="res10"></span>
+    </div>
+
+    <div class="problem-box">
+        <h3>11. Word Count</h3>
+        <input type="text" id="wordIn" oninput="countWords()">
+        <span id="res11">Words: 0</span>
+    </div>
+
+    <div class="problem-box">
+        <h3>12. Show Time</h3>
+        <button onclick="alert(new Date())">Click for Time</button>
+    </div>
+
+    <div class="problem-box">
+        <h3>13. Type to Enable</h3>
+        <input type="text" oninput="document.getElementById('btn13').disabled = (this.value === '')">
+        <button id="btn13" disabled>I am enabled!</button>
+    </div>
+
+    <div class="problem-box">
+        <h3>14. Show / Hide</h3>
+        <button onclick="toggleText()">Toggle</button>
+        <p id="res14" style="display:none">Surprise text!</p>
+    </div>
+
+    <div class="problem-box">
+        <h3>15. Even or Odd</h3>
+        <input type="number" id="num15">
+        <button onclick="checkEven()">Check</button>
+        <span id="res15"></span>
+    </div>
+
+    <div class="problem-box">
+        <h3>16. Case Converter</h3>
+        <input type="text" id="text16">
+        <button onclick="toCase('upper')">UPPER</button>
+        <button onclick="toCase('lower')">lower</button>
+        <span id="res16"></span>
+    </div>
+
+    <div class="problem-box">
+        <h3>17. Counter</h3>
+        <button onclick="countUp(-1)">-</button>
+        <span id="res17">0</span>
+        <button onclick="countUp(1)">+</button>
+    </div>
+
+    <div class="problem-box">
+        <h3>18. Count Vowels</h3>
+        <input type="text" id="text18">
+        <button onclick="cntVowels()">Count</button>
+        <span id="res18"></span>
+    </div>
+
+    <div class="problem-box">
+        <h3>19. Animate Name</h3>
+        <input type="text" id="text19">
+        <button onclick="startAnim()">Go</button>
+        <h2 id="res19"></h2>
+    </div>
+
+    <div class="problem-box">
+        <h3>20. Reverse String</h3>
+        <input type="text" id="text20">
+        <button onclick="doReverse()">Reverse</button>
+        <span id="res20"></span>
+    </div>
+
+    <script>
+        function calcAge() {
+            const d = new Date(document.getElementById('dob').value);
+            const n = new Date();
+            if(isNaN(d)) return alert("Enter date");
+            let age = n.getFullYear() - d.getFullYear();
+            document.getElementById('res1').innerText = age + " Years old (approx)";
+        }
+
+        function addList() {
+            const v = document.getElementById('listItem').value;
+            const li = document.createElement('li');
+            li.textContent = v;
+            document.getElementById('res2').appendChild(li);
+        }
+
+        function changeFont() {
+            document.getElementById('res3').style.fontFamily = document.getElementById('fontPick').value;
+        }
+
+        function calcFact() {
+            let num = document.getElementById('factInput').value;
+            let f = 1;
+            for(let i=1; i<=num; i++) f *= i;
+            document.getElementById('res4').innerText = f;
+        }
+
+        function doHighlight() {
+            const key = document.getElementById('searchKey').value;
+            const area = document.getElementById('searchArea');
+            if (key && area.textContent.includes(key)) {
+                area.innerHTML = area.textContent.replace(key, `<span class="highlight">${key}</span>`);
+            } else {
+                area.innerHTML = area.textContent;
+            }
+        }
+
+        function makeTable() {
+            const r = document.getElementById('rows').value;
+            const c = document.getElementById('cols').value;
+            let h = "<table border='1'>";
+            for(let i=0; i<r; i++) {
+                h += "<tr>";
+                for(let j=0; j<c; j++) h += `<td>${i},${j}</td>`;
+                h += "</tr>";
+            }
+            document.getElementById('res6').innerHTML = h + "</table>";
+        }
+
+        function showImage(e) {
+            const r = new FileReader();
+            r.onload = () => {
+                const img = document.getElementById('res7');
+                img.src = r.result;
+                img.style.display = 'block';
+            };
+            r.readAsDataURL(e.target.files[0]);
+        }
+
+        function addTodo() {
+            const t = document.getElementById('todoIn').value;
+            const li = document.createElement('li');
+            li.textContent = t;
+            li.onclick = () => li.remove(); 
+            document.getElementById('res8').appendChild(li);
+        }
+
+        function doLogin() {
+            const u = document.getElementById('uName').value;
+            const p = document.getElementById('pWord').value;
+            document.getElementById('res9').innerText = (u=="admin" && p=="1234") ? "Success" : "Fail";
+        }
+
+        function checkQuiz() {
+            const q = document.querySelector('input[name="q1"]:checked');
+            document.getElementById('res10').innerText = (q && q.value === "10") ? "Correct" : "Wrong";
+        }
+
+        function countWords() {
+            const s = document.getElementById('wordIn').value.trim();
+            document.getElementById('res11').innerText = "Words: " + (s ? s.split(/\s+/).length : 0);
+        }
+
+        function toggleText() {
+            const x = document.getElementById('res14');
+            x.style.display = (x.style.display === 'none') ? 'block' : 'none';
+        }
+
+        function checkEven() {
+            const n = document.getElementById('num15').value;
+            document.getElementById('res15').innerText = (n % 2 === 0) ? "Even" : "Odd";
+        }
+
+        function toCase(type) {
+            const t = document.getElementById('text16').value;
+            document.getElementById('res16').innerText = (type === 'upper') ? t.toUpperCase() : t.toLowerCase();
+        }
+
+        let count = 0;
+        function countUp(v) {
+            count += v;
+            document.getElementById('res17').innerText = count;
+        }
+
+        function cntVowels() {
+            const m = document.getElementById('text18').value.match(/[aeiou]/gi);
+            document.getElementById('res18').innerText = m ? m.length : 0;
+        }
+
+        function startAnim() {
+            const n = document.getElementById('text19').value;
+            const d = document.getElementById('res19');
+            d.innerText = "";
+            let i = 0;
+            const t = setInterval(() => {
+                if(i < n.length) d.innerText += n[i++];
+                else clearInterval(t);
+            }, 100);
+        }
+
+        function doReverse() {
+            const s = document.getElementById('text20').value;
+            document.getElementById('res20').innerText = s.split('').reverse().join('');
+        }
+    </script>
+</body>
+</html>

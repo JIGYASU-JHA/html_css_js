@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>20. Reverse String</h3>
+        <input type="text" id="text">
+        <button onclick="doReverse()">Reverse</button>
+        <span id="res"></span>
+    </div>
+
+ <script>
+    function doReverse() {
+            const s = document.getElementById('text').value;
+            document.getElementById('res').innerText = s.split('').reverse().join('');
+        }
+ </script>
+</body>
+</html>   

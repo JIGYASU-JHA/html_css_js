@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>8. To-Do List</h3>
+        <input type="text" id="todoIn">
+        <button onclick="addTodo()">Add Task</button>
+        <ul id="res"></ul>
+    </div>
+
+ <script>
+    function addTodo() {
+            const t = document.getElementById('todoIn').value;
+            const li = document.createElement('li');
+            li.textContent = t;
+            li.onclick = () => li.remove(); 
+            document.getElementById('res').appendChild(li);
+        }
+ </script>
+
+</body>
+</html>   

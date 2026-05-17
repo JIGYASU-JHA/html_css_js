@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+     <div class="problem-box">
+        <h3>3. Change Font</h3>
+        <select id="fontPick" onchange="changeFont()">
+            <option value="sans-serif">Sans Serif</option>
+            <option value="serif">Serif</option>
+            <option value="monospace">Monospace</option>
+            <option value="cursive">Cursive</option>
+        </select>
+        <p id="res">This text will change font.</p>
+    </div>
+<script>
+    function changeFont() {
+            document.getElementById('res').style.fontFamily = document.getElementById('fontPick').value;
+        }
+</script>
+
+</body>
+</html>   

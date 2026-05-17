@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>2. Add to List</h3>
+        <input type="text" id="listItem">
+        <button onclick="addList()">Add</button>
+        <ol id="res"></ol>
+    </div>
+<script>
+    function addList() {
+            const v = document.getElementById('listItem').value;
+            const li = document.createElement('li');
+            li.textContent = v;
+            document.getElementById('res').appendChild(li);
+        }
+ </script>
+</body>
+</html>   

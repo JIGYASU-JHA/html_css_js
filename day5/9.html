@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>9. Login (admin / 1234)</h3>
+        <input type="text" id="uName" placeholder="User">
+        <input type="password" id="pWord" placeholder="Pass">
+        <button onclick="doLogin()">Login</button>
+        <span id="res"></span>
+    </div>
+
+ <script>
+    function doLogin() {
+            const u = document.getElementById('uName').value;
+            const p = document.getElementById('pWord').value;
+            document.getElementById('res').innerText = (u=="admin" && p=="1234") ? "Success" : "Fail";
+        }
+ </script>
+
+</body>
+</html>   

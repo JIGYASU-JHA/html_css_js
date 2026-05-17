@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>11. Word Count</h3>
+        <input type="text" id="wordIn" oninput="countWords()">
+        <span id="res">Words: 0</span>
+    </div>
+
+ <script>
+    function countWords() {
+            const s = document.getElementById('wordIn').value.trim();
+            document.getElementById('res').innerText = "Words: " + (s ? s.split(/\s+/).length : 0);
+        }
+ </script>
+</body>
+</html>   

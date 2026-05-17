@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>1. Age Calculator</h3>
+        <input type="date" id="dob">
+        <button onclick="calcAge()">Get Age</button>
+        <span id="res"></span>
+    </div>
+
+    <script>
+        function calcAge() {
+            const d = new Date(document.getElementById('dob').value);
+            const n = new Date();
+            if(isNaN(d)) return alert("Enter date");
+            let age = n.getFullYear() - d.getFullYear();
+            document.getElementById('res').innerText = age + " Years old (approx)";
+        }
+    </script>
+</body>
+</html>   

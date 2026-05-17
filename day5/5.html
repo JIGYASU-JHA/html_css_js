@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+<body>
+     <div class="problem-box">
+        <h3>5. Highlight Search</h3>
+        <input type="text" id="searchKey" oninput="doHighlight()" placeholder="Type 'hello'...">
+        <p id="searchArea">Hello world, this is a hello test for highlighting.</p>
+    </div>
+
+ <script>
+    function doHighlight() {
+            const key = document.getElementById('searchKey').value;
+            const area = document.getElementById('searchArea');
+            if (key && area.textContent.includes(key)) {
+                area.innerHTML = area.textContent.replace(key, `<span class="highlight">${key}</span>`);
+            } else {
+                area.innerHTML = area.textContent;
+            }
+        }
+ </script>
+</body>
+</html>   

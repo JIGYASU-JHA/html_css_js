@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>17. Counter</h3>
+        <button onclick="countUp(-1)">-</button>
+        <span id="res">0</span>
+        <button onclick="countUp(1)">+</button>
+    </div>
+
+<script>
+    let count = 0;
+        function countUp(v) {
+            count += v;
+            document.getElementById('res').innerText = count;
+        }
+</script>
+</body>
+</html>   

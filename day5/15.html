@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>15. Even or Odd</h3>
+        <input type="number" id="num15">
+        <button onclick="checkEven()">Check</button>
+        <span id="res"></span>
+    </div>
+
+ <script>
+    function checkEven() {
+            const n = document.getElementById('num15').value;
+            document.getElementById('res').innerText = (n % 2 === 0) ? "Even" : "Odd";
+        }
+ </script>
+</body>
+</html>   

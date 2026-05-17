@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>6. Create Table</h3>
+        <input type="number" id="rows" placeholder="Rows" style="width: 50px;">
+        <input type="number" id="cols" placeholder="Cols" style="width: 50px;">
+        <button onclick="makeTable()">Make Table</button>
+        <div id="res" style="margin-top:10px;"></div>
+    </div>
+
+<script> 
+function makeTable() {
+     const r = document.getElementById('rows').value;
+     const c = document.getElementById('cols').value;
+     let h = "<table border='1'>";
+        for(let i=0; i<r; i++) {
+            h += "<tr>";
+                 for(let j=0; j<c; j++) h += `<td>${i},${j}</td>`;
+                  h += "</tr>";
+            }
+            document.getElementById('res').innerHTML = h + "</table>";
+        }
+</script>      
+</body>
+</html>   

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+<h2>Registration Form</h2>
+<form onsubmit="return validateForm()">
+
+    Name:
+    <input type="text" id="name"><br><br>
+    Email:
+    <input type="email" id="email"><br><br>
+    Tel:
+    <input type="text" id="tel"><br><br>
+    Password:
+    <input type="password" id="pass"><br><br>
+    Confirm Password:
+    <input type="password" id="cpass"><br><br>
+    Date of Birth:
+    <input type="date" id="dob" onchange="calcAge()"><br><br>
+    Age:
+    <input type="text" id="age" readonly><br><br>
+    Gender:
+    <input type="radio" name="gender"> Male
+    <input type="radio" name="gender"> Female
+    <br><br>
+    Hobbies:
+    <input type="checkbox"> Reading
+    <input type="checkbox"> Sports
+    <input type="checkbox"> Music
+    <br><br>
+    Address:<br>
+    <textarea rows="3" cols="30"></textarea><br><br>
+    <button type="submit">Register</button>
+
+</form>
+<p id="msg"></p>
+
+<script>
+function calcAge() {
+    var dob = new Date(document.getElementById("dob").value);
+    var today = new Date();
+    var age = today.getFullYear() - dob.getFullYear();
+    document.getElementById("age").value = age;
+}
+
+function validateForm() {
+    var name = document.getElementById("name").value;
+    var tel = document.getElementById("tel").value;
+    var pass = document.getElementById("pass").value;
+    var cpass = document.getElementById("cpass").value;
+    var age = document.getElementById("age").value;
+
+    if(name == "") {
+        alert("Name required");
+        return false;
+    }
+
+    if(isNaN(tel) || tel.length != 10) {
+        alert("Enter valid 10 digit phone number");
+        return false;
+    }
+
+    if(pass != cpass) {
+        alert("Passwords do not match");
+        return false;
+    }
+
+    if(age < 18) {
+        alert("Age must be above 18");
+        return false;
+    }
+    alert("Registration Successful");
+    return true;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>19. Animate Name</h3>
+        <input type="text" id="text">
+        <button onclick="startAnim()">Go</button>
+        <h2 id="res"></h2>
+    </div>
+
+ <script>
+    function startAnim() {
+            const n = document.getElementById('text').value;
+            const d = document.getElementById('res');
+            d.innerText = "";
+            let i = 0;
+            const t = setInterval(() => {
+                if(i < n.length) d.innerText += n[i++];
+                else clearInterval(t);
+            }, 100);
+        }
+ </script>
+</body>
+</html>   

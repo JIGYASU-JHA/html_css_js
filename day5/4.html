@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="problem-box">
+        <h3>4. Factorial</h3>
+        <input type="number" id="factInput">
+        <button onclick="calcFact()">Calculate</button>
+        <span id="res"></span>
+    </div>
+
+ <script>
+    function calcFact() {
+            let num = document.getElementById('factInput').value;
+            let f = 1;
+            for(let i=1; i<=num; i++) f *= i;
+            document.getElementById('res').innerText = f;
+        }
+ </script>
+</body>
+</html>   
